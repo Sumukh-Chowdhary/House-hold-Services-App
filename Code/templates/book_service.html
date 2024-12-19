@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Service</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='book_service.css') }}">
+</head>
+<body>
+    {% block content %}
+    <div class="container">
+        <h2 id="title">Book your service</h2>
+        <form action="{{url_for('book_service',  service_id=service.id)}}" method="POST">
+            <div class="form-group">
+                <label for="service_name">Service Name:</label>
+                <input type="text" class="form-same" name="service_name" value="{{service.name}}" readonly>
+            </div>
+            <div class="form-group">
+                <label for="prof">Username:</label>
+                <input type="text" class="form-same" name="prof" value="{{professional.username}}" readonly>
+            </div>
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="text" class="form-same" name="price" value="{{service.price}}" readonly>
+            </div>
+            <div class="form-group">
+                <label for="time">Time:</label>
+                <input type="text" class="form-same" name="time" value="{{service.time}}" readonly>
+            </div>
+            <div class="form-group">
+                <label for="req_date">Date:</label>
+                <input type="date" class="form-same" name="req_date" required>
+            </div>
+            <div class="btn"><button type="sumbit" class="s-btn">Book Service</button></div>
+        </form> 
+    </div>
+    {% endblock %}
+</body>
+</html>

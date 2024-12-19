@@ -1,0 +1,47 @@
+{% extends 'professional.html' %}
+
+{% block content %}
+<div class="table-wrap">
+    <div class="ser-name"><h1>Services</h1></div>
+<div class="table">
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Time required</th>
+                <th>Description</th>
+                <th>Register</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for service in services %}
+            <tr>
+                <td>{{service.id}}</td>
+                <td>{{service.name}}</td>
+                <td>{{service.category}}</td>
+                <td>{{service.price}}</td>
+                <td>{{service.time}}</td>
+                <td>{{service.desc}}</td>
+                <td>
+                    {% if service.id in registartion_id %}
+                    <form action="{{url_for('unregister_service',service_id=service.id)}}" method="POST" style="display:inline">
+                        <button class="register-btn" type="submit" style="background-color:rgb(221, 40, 40); color:white; border:none ; width:120px; padding: 5px 10px; border-radius: 5px;">Unregister</button>
+                    </form>
+                    {% elif registartion_id==[] %}
+                    <form action="{{url_for('register_service',service_id=service.id)}}" method="POST" style="display:inline">
+                        <button class="register-btn" type="submit" style="background-color:rgb(25, 164, 50); color:white; border:none; width:120px; padding: 5px 10px; border-radius: 5px;">Register</button>
+                    </form>
+                    {% else %}
+                        <button class="register-btn" disabled type="submit" style="background-color:rgb(134, 133, 133); color:white; border:none ; width:120px; padding: 5px 10px; border-radius: 5px; cursor:not-allowed;">Not Available</button>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</div>
+{% endblock %}

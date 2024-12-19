@@ -1,0 +1,25 @@
+{% extends 'login_reg.html' %}
+
+{% block title %}Login Page{% endblock %}
+
+{% block content %}
+<div class="login-form">
+    <div class="login-box">
+        <header>Login</header>
+    </div>
+    <form action="{{url_for('login')}}"  method="post">
+    <div class="input-box">
+        <input type="text" placeholder="Username" class="user-in" name="username" required>
+    </div>
+    <div class="input-box">
+        <input type="password" placeholder="Password" class="user-in" name="password" required>
+    </div>
+    <div class="lgn-btn">
+        <button class="lgn-c" id="lgn">Login</button>
+    </div>
+    <div class="register">
+        <p>Not Registered?<a href="{{url_for('signup')}}" class="sign">Sign-up</a></p>
+    </div>
+    </form>
+</div>
+{% endblock %}

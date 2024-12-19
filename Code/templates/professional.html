@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='professional.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="nav-bar">
+        <div class="links">
+            <div class="logo"><h2>AZ_SeR</h2></div>
+            <div class="page-link"><a href="{{url_for('professional')}}">Home</a></div>
+            <div class="page-link"><a href="{{url_for('prof_register')}}">Register</a></div>
+            <div class="page-link"><a href="{{url_for('ser_requests')}}">Requests</a></div>
+            <div class="page-link"><a href="{{url_for('prof_logout')}}">Logout</a></div>
+            <div class="type"><h3>Professional</h3></div>
+        </div>
+    </div>
+    {% block content %}
+    <div class="prof-dashboard">
+        <div class="prof-info">
+            <h2>Welcome, {{professional.username}}</h2>
+        </div>
+        <div class="cards-container">
+            <div class="card">
+                <h3>Registered Service</h3>
+                <p>{{registartion_detail_name}}</p>
+            </div>
+            <div class="card">
+                <h3>Total Requests</h3>
+                <p>{{total_requests}}</p>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+    {% with messages=get_flashed_messages() %}
+        {% if messages %}
+            <div class="messages">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+</body>
+</html>

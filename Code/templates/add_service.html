@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='add_service.css') }}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="ser-form">
+    <h2>Create Service</h2>
+    <form actions="url_for{{'/admin/services/add_service'}}" method="POST">
+        <div class="ser"><input class="inn" type="text" name="name" placeholder="Service Name" required></div><br>
+        <div class="ser"><input class="inn" type="text" name="price" placeholder="Price" required></div><br>
+        <div class="ser"><input class="inn" type="text" name="category" placeholder="Category" required></div><br>
+        <div class="ser"><input class="inn" type="text" name="time" placeholder="Time Required" required></div><br>
+        <div class="ser"><input class="inn" id="des" type="text" name="desc" placeholder="Description" required></div><br>
+        <div class="btn"><button class="s-btn" type="submit" class="r-btn">Create</button></div>
+    </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{% extends 'admin.html' %}
+
+{% block content %}
+<div class="table-wrap">
+    <div class="ser-name"><h1>Services</h1></div>
+    <div class="ser-btn">
+        <form  action="{{url_for('add_service')}}" method="get">
+            <button type="submit" id="btn">+Add Service</button>
+        </form>
+    </div>
+    <br><br>
+    <div class="table">
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Time required</th>
+                <th>Description</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for service in services %}
+            <tr>
+                <td>{{service.id}}</td>
+                <td>{{service.name}}</td>
+                <td>{{service.category}}</td>
+                <td>{{service.price}}</td>
+                <td>{{service.time}}</td>
+                <td>{{service.desc}}</td>
+                <td>
+                    <form action="{{url_for('delete_service',service_id=service.id)}}" method="POST" style="display:inline">
+                        <button class="del-btn" type="submit" style="background-color:red; color:white; border:none ; padding: 5px 10px; border-radius: 5px;">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</div>
+
+{% endblock %}

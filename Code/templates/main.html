@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <title>{% block title %}AZ House Services{% endblock %}</title>
+    {% block style %}
+    {% endblock %}
+</head>
+<body>
+    <div class="nav-bar">
+        <div class="links">
+            <div class="logo"><h2>AZ_SeR</h2></div>
+            <div class="page-link"><a href="{{url_for('welcome')}}">Home</a></div>
+            <div class="page-link"><a href="{{url_for('login')}}">Login</a></div>
+            <div class="page-link"><a href="{{url_for('signup')}}">Register</a></div>
+            <div class="type"><h3>Welcome</h3></div>
+        </div>
+    </div>
+    <div class="flex-container-main">
+    <div class="container">
+        <h1>Welcome to AZ House Services</h1>
+        <h4>The best house services in town</h4>
+        <h4>Search for services</h4>
+        <h4>Book a service</h4>
+        <h4>Services at low prices</h4>
+        <h4>Services available in your locality</h4>
+    </div>
+    </div>
+        {% with messages=get_flashed_messages() %}
+            {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+        {% endwith %}
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

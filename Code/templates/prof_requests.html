@@ -1,0 +1,46 @@
+{% extends 'professional.html' %}
+
+{% block content %}
+    <div class="table-wrap">
+        <div class="ser-name"><h2>Your Service Requests</h2></div>
+        <div class="table">
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Customer Id</th>
+                    <th>Customer Address</th>
+                    <th>Service</th>
+                    <th>Date</th>
+                    <th>Request Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for request in service_requests %}
+                <tr>
+                    <td>{{request.customer.id}}</td>
+                    <td>{{request.customer.address}}</td>
+                    <td>{{request.service.name}}</td>
+                    <td>{{request.service_date}}</td>
+                    <td>{{request.status}}</td>
+                    <td>
+                        {% if request.status=='Pending' %}
+                            <form method="POST" action="{{url_for('request_accept',request_id=request.id)}}">
+                                <button type="submit" style="background-color:green; width:134px;">Accept</button>
+                            </form>
+                            <form method="POST" action="{{url_for('request_reject',request_id=request.id)}}">
+                                <button type="submit" style="background-color:red; width:134px;">Reject</button>
+                            </form>
+                        {% elif request.status=='Accepted' %}
+                        <form method="POST" action="{{url_for('request_complete',request_id=request.id)}}">
+                            <button type="submit" style="background-color:black; color:azure; width:134px;">Mark as Completed</button>
+                        </form>
+                        {% endif %}
+                    </td> 
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

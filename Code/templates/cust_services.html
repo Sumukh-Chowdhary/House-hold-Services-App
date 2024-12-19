@@ -1,0 +1,47 @@
+{% extends 'customer.html' %}
+
+{% block content %}
+<div class="table-wrap">
+    <div class="ser-name"><h2>Book Your Service</h2></div>
+    <form action="{{url_for('services_search')}}" method="GET">
+        <input  class="search-bar" type="text"  name="search" placeholder="Search in Services">
+        <button class="search-btn" type="submit">Search</button>
+    </form>
+    <div class="table">
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Service Id</th>
+                <th>Service Name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Time required</th>
+                <th>Description</th>
+                <th>User Id</th>
+                <th>Username</th>
+                <th>Book</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for service in services %}
+            <tr>
+                <td>{{service.service_id}}</td>
+                <td>{{service.service_name}}</td>
+                <td>{{service.service_category}}</td>
+                <td>{{service.service_price}}</td>
+                <td>{{service.service_time}}</td>
+                <td>{{service.service_description}}</td>
+                <td>{{service.professional_id}}</td>
+                <td>{{service.professional_name}}</td>
+                <td>
+                    <div class="book-btn">
+                    <a id="linker" href="{{url_for('book_service',service_id=service.service_id)}}">Book</a>
+                </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</div>
+{% endblock %}

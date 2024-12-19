@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins',sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #dfdfdf;
+    min-height: 100vh;
+}
+
+.login-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 440px;
+    height: 480px;
+    padding: 30px;
+    border: 5px solid black;
+    border-radius: 20px;
+}
+
+.login-box{
+    text-align: center;
+    margin: 20px 0 40px 0;
+}
+
+.login-box header{
+    color: #333;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.input-box .user-in{
+    width: 330px;
+    height: 60px;
+    font-size: 17px;
+    padding:0 25px;
+    margin-bottom: 15px;
+    border-radius: 30px;
+    border: none;
+    font-weight: 500;
+    outline: none;
+    color: #333;
+}
+
+.input-box .user-in:hover{
+    border:2px solid black;
+}
+
+.forgot{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+section{
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #555;
+}
+
+.lgn-btn{
+    position: relative;
+    width:100%;
+}
+
+.lgn-c{
+    width: 100%;
+    height: 60px;
+    background: #222;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    color:whitesmoke;
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.lgn-c:hover{
+    background-color: #555;
+}
+
+.register{
+    text-align: center;
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+.signup-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 520px;
+    height: 840px;
+    padding: 30px;
+    border: 5px solid black;
+    border-radius: 20px;
+}
+h1{
+    text-align: center;
+    margin: 20px 0 40px 0;
+}
+.user-div .user{
+    width: 330px;
+    height: 60px;
+    font-size: 17px;
+    padding:0 25px;
+    margin-bottom: 15px;
+    border-radius: 30px;
+    border: none;
+    font-weight: 500;
+    outline: none;
+    color: #333;
+}
+.user-div .options{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:330px;
+    height: 60px;
+    font-size: 17px;
+    padding:0 25px;
+    margin-bottom: 15px;
+    border-radius: 30px;
+    border: none;
+    font-weight: 500;
+    outline: none;
+    color: #333;
+}
+#address{
+    height: 130px;
+}
+.btn{
+    position: relative;
+    width:100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.r-btn{
+    width: 250px;
+    height: 60px;
+    background: #222;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    color:whitesmoke;
+    font-weight: 500;
+    font-size: 17px;
+    text-align: center;
+}
+
+.messages{
+    width:auto;
+    height: auto;
+    display: flex;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(209, 206, 202);
+    transform: translate(-50%,0);
+    color:black;
+    border-radius: 5px;
+    z-index:9999;
+    left:50%;
+    top: 20px;
+    border:2px solid rgb(38, 37, 37);
+    padding: 10px;
+    text-align:center;
+    visibility: visible;
+    opacity: 1;
+}
+
+.messages p{
+    margin:0px;
+    font-size: 14px;
+}

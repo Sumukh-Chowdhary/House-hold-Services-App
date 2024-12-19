@@ -1,0 +1,49 @@
+{% extends 'admin.html' %}
+
+{% block content %}
+<div class="table-wrap">
+    <div class="ser-name"><h1>Customers</h1></div>
+    <br><br>
+    <form action="{{url_for('admin_search_customer')}}" method="GET">
+        <input  class="search-bar" type="text"  name="search" placeholder="Search by name">
+        <button class="search-btn" type="submit">Search</button>
+    </form>
+    <div class="table">
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Block</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for customer in customer %}
+            <tr>
+                <td>{{customer.id}}</td>
+                <td>{{customer.username}}</td>
+                <td>{{customer.email}}</td>
+                <td>{{customer.phone}}</td>
+                <td>{{customer.address}}</td>
+                <td>
+                    {% if not customer.blocked %}
+                    <form action="{{url_for('block_customer',customer_id=customer.id)}}" method="POST" style="display:inline">
+                        <button class="block" type="submit" style="background-color:red; width:100px; color:white; border:none ; padding: 5px 10px; border-radius: 5px; cursor: pointer;">Block</button>
+                    </form>
+                    {% else %}
+                    <form action="{{url_for('block_customer',customer_id=customer.id)}}" method="POST" style="display:inline">
+                        <button class="unblock" type="submit" style="background-color:green; width:100px; color:white;border:none ; padding: 5px 10px; border-radius: 5px; cursor: pointer;">UnBlock</button>
+                    </form>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</div>
+
+{% endblock %}

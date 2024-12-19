@@ -1,0 +1,41 @@
+{% extends 'customer.html' %}
+
+{% block content %}
+    <div class="table-wrap">
+    <div class="ser-name"><h2>Your Service Requests</h2></div>
+    <div class="table" id="table-of-services">
+    <table border="1">
+        <thead>
+            <th>Service Name</th>
+            <th>Professional</th>
+            <th>Service Date</th>
+            <th>Price</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            {% for request in requests %}
+            <tr>
+                <td>{{request.service.name}}</td>
+                <td>{{request.professional.username}}</td>
+                <td>{{request.service_date}}</td>
+                <td>{{request.price}}</td>
+                <td>{{request.status}}</td>
+                <td>
+                    {% if request.status == 'Pending' or request.status == 'Rejected' or request.status=='Completed' %}
+                    <form method="POST" action="{{url_for('end_request',request_id=request.id)}}">
+                        <button type="submit" class="btn btn-primary" style="background-color:red; width:150px; color:white; border:none ; padding: 5px 10px; border-radius: 5px; cursor: pointer;">End Request</button>
+                    </form>
+                    {% elif request.status=="Accepted" %}
+                    <form method="POST" action="{{url_for('end_request',request_id=request.id)}}">
+                        <button type="submit" class="btn btn-primary" style="background-color:gray; width:150px; color:white; border:none ; padding: 5px 10px; border-radius: 5px; cursor:not-allowed;" disabled>End Request</button>
+                    </form>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</div>
+{% endblock %}
