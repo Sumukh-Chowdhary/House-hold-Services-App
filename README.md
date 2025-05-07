@@ -25,10 +25,3 @@ A simple web application for managing household services. Built using **Flask** 
 - **Jinja2** – Template rendering for dynamic content
 
 ---
-
-## 🚀 How to Use
-
-1. **Clone or download the repository:**
-
-```bash
-git clone https://github.com/yourusername/household-services.git
